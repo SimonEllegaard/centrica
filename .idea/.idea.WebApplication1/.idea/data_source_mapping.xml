@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/Centrica/Database/01-CreateDatabase.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
-    <file url="file://$PROJECT_DIR$/Centrica/Database/02-CreateTables.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
-    <file url="file://$PROJECT_DIR$/Centrica/Database/03-CreateConstraints.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
-    <file url="file://$PROJECT_DIR$/Centrica/Database/04-SeedTestData.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
+    <file url="file://$PROJECT_DIR$/SalesManagement.Application/Database/01-CreateDatabase.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
+    <file url="file://$PROJECT_DIR$/SalesManagement.Application/Database/02-CreateTables.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
+    <file url="file://$PROJECT_DIR$/SalesManagement.Application/Database/03-CreateConstraints.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
+    <file url="file://$PROJECT_DIR$/SalesManagement.Application/Database/04-SeedTestData.sql" value="5c993d15-40bb-420c-a6ac-6b5240fdbf54" />
   </component>
 </project>
