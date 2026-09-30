@@ -21,4 +21,8 @@
         <Using Include="NUnit.Framework"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SalesManagement.Data\SalesManagement.Data.csproj" />
+    </ItemGroup>
+
 </Project>
