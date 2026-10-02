@@ -4,26 +4,19 @@ using Dtos;
 using Interfaces;
 using DomainModels;
 
-public sealed class DistrictService : IDistrictService
+public sealed class DistrictService(IDistrictRepository districtRepository) : IDistrictService
 {
-    private readonly IDistrictRepository _districtRepository;
-
-    public DistrictService(IDistrictRepository districtRepository)
-    {
-        _districtRepository = districtRepository;
-    }
-
     public Task<IReadOnlyList<District>> GetDistrictsAsync(
         CancellationToken cancellationToken = default)
     {
-        return _districtRepository.GetAllAsync(cancellationToken);
+        return districtRepository.GetAllAsync(cancellationToken);
     }
 
     public Task<DistrictDetails?> GetDistrictDetailsAsync(
         int districtId,
         CancellationToken cancellationToken = default)
     {
-        return _districtRepository.GetDetailsAsync(
+        return districtRepository.GetDetailsAsync(
             districtId,
             cancellationToken);
     }
