@@ -1,4 +1,4 @@
-using SalesManagement.Data.DomainModel.Enums;
+using SalesManagement.Application.DomainModels.Enums;
 
 namespace SalesManagement.Application.Dtos;
 
