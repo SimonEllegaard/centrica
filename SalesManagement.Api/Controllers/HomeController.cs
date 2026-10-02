@@ -1,31 +1,43 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
+using SalesManagement.Application.Interfaces;
 
-namespace WebApplication1.Controllers;
+namespace SalesManagement.Api.Controllers;
 
-public class HomeController : Controller
+[ApiController]
+[Route("api/districts")]
+public sealed class DistrictsController : ControllerBase
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IDistrictService _districtService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public DistrictsController(IDistrictService districtService)
     {
-        _logger = logger;
+        _districtService = districtService;
     }
 
-    public IActionResult Index()
+    [HttpGet]
+    public async Task<ActionResult> GetDistricts(
+        CancellationToken cancellationToken)
     {
-        return View();
+        var districts = await _districtService.GetDistrictsAsync(
+            cancellationToken);
+
+        return Ok(districts);
     }
 
-    public IActionResult Privacy()
+    [HttpGet("{districtId:int}")]
+    public async Task<ActionResult> GetDistrict(
+        int districtId,
+        CancellationToken cancellationToken)
     {
-        return View();
-    }
+        var district = await _districtService.GetDistrictDetailsAsync(
+            districtId,
+            cancellationToken);
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        if (district is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(district);
     }
 }
