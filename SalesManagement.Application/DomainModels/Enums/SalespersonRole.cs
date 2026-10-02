@@ -1,4 +1,4 @@
-namespace SalesManagement.Data.DomainModel.Enums;
+namespace SalesManagement.Application.DomainModels.Enums;
 
 public enum SalespersonRole
 {

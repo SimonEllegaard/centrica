@@ -1,4 +1,4 @@
-namespace SalesManagement.Data.DomainModel;
+namespace SalesManagement.Application.DomainModels;
 
 public class District
 {
