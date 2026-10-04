@@ -5,20 +5,13 @@ namespace SalesManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/districts")]
-public sealed class DistrictsController : ControllerBase
+public sealed class DistrictsController(IDistrictService districtService) : ControllerBase
 {
-    private readonly IDistrictService _districtService;
-
-    public DistrictsController(IDistrictService districtService)
-    {
-        _districtService = districtService;
-    }
-
     [HttpGet]
     public async Task<ActionResult> GetDistricts(
         CancellationToken cancellationToken)
     {
-        var districts = await _districtService.GetDistrictsAsync(
+        var districts = await districtService.GetDistrictsAsync(
             cancellationToken);
 
         return Ok(districts);
@@ -29,7 +22,7 @@ public sealed class DistrictsController : ControllerBase
         int districtId,
         CancellationToken cancellationToken)
     {
-        var district = await _districtService.GetDistrictDetailsAsync(
+        var district = await districtService.GetDistrictDetailsAsync(
             districtId,
             cancellationToken);
 

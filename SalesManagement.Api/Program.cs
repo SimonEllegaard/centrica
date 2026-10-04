@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using SalesManagement.Application.Interfaces;
 using SalesManagement.Application.Services;
 using SalesManagement.Data.Database;
@@ -6,7 +7,12 @@ using SalesManagement.Data.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new JsonStringEnumConverter());
+    });
 
 var connectionString =
     builder.Configuration.GetConnectionString("SalesManagement")
