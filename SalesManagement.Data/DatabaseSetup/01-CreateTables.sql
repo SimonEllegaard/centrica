@@ -1,5 +1,3 @@
-USE SalesManagement;
-
 CREATE TABLE dbo.Salesperson
 (
     SalespersonId INT IDENTITY(1, 1) NOT NULL,

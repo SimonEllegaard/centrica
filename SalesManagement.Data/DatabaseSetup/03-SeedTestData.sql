@@ -1,5 +1,3 @@
-USE SalesManagement;
-
 INSERT INTO dbo.Salesperson (Name)
 VALUES
     ('Alice Jensen'),
