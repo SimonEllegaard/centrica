@@ -23,6 +23,7 @@ if ($DropExisting) {
     sqlcmd `
         -S $ServerName `
         -E `
+        -C `
         -Q "IF DB_ID(N'$DatabaseName') IS NOT NULL DROP DATABASE [$DatabaseName];"
 
     if ($LASTEXITCODE -ne 0) {
@@ -35,6 +36,7 @@ Write-Host "Creating database '$DatabaseName' if it does not exist..."
 sqlcmd `
     -S $ServerName `
     -E `
+    -C `
     -Q "IF DB_ID(N'$DatabaseName') IS NULL CREATE DATABASE [$DatabaseName];"
 
 if ($LASTEXITCODE -ne 0) {
@@ -46,6 +48,7 @@ Write-Host "Creating tables..."
 sqlcmd `
     -S $ServerName `
     -E `
+    -C `
     -d $DatabaseName `
     -i $CreateTablesScript
 
@@ -58,6 +61,7 @@ Write-Host "Creating constraints..."
 sqlcmd `
     -S $ServerName `
     -E `
+    -C `
     -d $DatabaseName `
     -i $CreateConstraintsScript
 
@@ -70,6 +74,7 @@ Write-Host "Seeding test data..."
 sqlcmd `
     -S $ServerName `
     -E `
+    -C `
     -d $DatabaseName `
     -i $SeedDataScript
 

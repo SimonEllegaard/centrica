@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+
 INSERT INTO dbo.Salesperson (Name)
 VALUES
     ('Alice Jensen'),
