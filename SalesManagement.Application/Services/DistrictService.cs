@@ -7,26 +7,19 @@ using Dtos;
 using Interfaces;
 using DomainModels;
 
-public class DistrictService : IDistrictService
+public class DistrictService(IDistrictRepository districtRepository) : IDistrictService
 {
-    private readonly IDistrictRepository _districtRepository;
-
-    public DistrictService(IDistrictRepository districtRepository)
-    {
-        _districtRepository = districtRepository;
-    }
-
     public Task<IReadOnlyList<District>> GetDistrictsAsync(
         CancellationToken cancellationToken = default)
     {
-        return _districtRepository.GetAllAsync(cancellationToken);
+        return districtRepository.GetAllAsync(cancellationToken);
     }
 
     public Task<DistrictDetails?> GetDistrictDetailsAsync(
         int districtId,
         CancellationToken cancellationToken = default)
     {
-        return _districtRepository.GetDetailsAsync(
+        return districtRepository.GetDetailsAsync(
             districtId,
             cancellationToken);
     }
@@ -37,21 +30,21 @@ public class DistrictService : IDistrictService
         SalespersonRole role,
         CancellationToken cancellationToken = default)
     {
-        if (!await _districtRepository.DistrictExistsAsync(
+        if (!await districtRepository.DistrictExistsAsync(
                 districtId,
                 cancellationToken))
         {
             throw new DistrictNotFoundException(districtId);
         }
 
-        if (!await _districtRepository.SalespersonExistsAsync(
+        if (!await districtRepository.SalespersonExistsAsync(
                 salespersonId,
                 cancellationToken))
         {
             throw new SalespersonNotFoundException(salespersonId);
         }
 
-        await _districtRepository.AssignSalespersonAsync(
+        await districtRepository.AssignSalespersonAsync(
             districtId,
             salespersonId,
             role,
@@ -63,14 +56,14 @@ public class DistrictService : IDistrictService
         int salespersonId,
         CancellationToken cancellationToken = default)
     {
-        if (!await _districtRepository.DistrictExistsAsync(
+        if (!await districtRepository.DistrictExistsAsync(
                 districtId,
                 cancellationToken))
         {
             throw new DistrictNotFoundException(districtId);
         }
 
-        if (!await _districtRepository.SalespersonExistsAsync(
+        if (!await districtRepository.SalespersonExistsAsync(
                 salespersonId,
                 cancellationToken))
         {
@@ -78,7 +71,7 @@ public class DistrictService : IDistrictService
         }
 
         var assignment =
-            await _districtRepository.GetSalespersonAssignmentAsync(
+            await districtRepository.GetSalespersonAssignmentAsync(
                 districtId,
                 salespersonId,
                 cancellationToken);
@@ -93,7 +86,7 @@ public class DistrictService : IDistrictService
             throw new PrimarySalespersonRequiredException(districtId);
         }
 
-        await _districtRepository.RemoveSalespersonAsync(
+        await districtRepository.RemoveSalespersonAsync(
             districtId,
             salespersonId,
             cancellationToken);
