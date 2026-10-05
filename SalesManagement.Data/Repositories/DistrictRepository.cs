@@ -21,6 +21,8 @@ public sealed class DistrictRepository(SqlConnectionFactory connectionFactory) :
 
         await using var connection = connectionFactory.CreateConnection();
 
+        await connection.OpenAsync(cancellationToken);
+
         var command = new CommandDefinition(
             sql,
             cancellationToken: cancellationToken);
