@@ -1,4 +1,4 @@
-using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using SalesManagement.Data.Database;
 using SalesManagement.Data.Repositories;
 
@@ -6,26 +6,29 @@ namespace SalesManagement.IntegrationTests;
 
 public sealed class DatabaseFixture
 {
-    private const string ConnectionString =
-        "Server=DESKTOP-OL6L16D;" +
-        "Database=SalesManagement;" +
-        "Trusted_Connection=True;" +
-        "TrustServerCertificate=True;";
-
-    private SqlConnectionFactory ConnectionFactory { get; }
+    public SqlConnectionFactory ConnectionFactory { get; }
 
     public DistrictRepository DistrictRepository { get; }
 
     public DatabaseFixture()
     {
-        ConnectionFactory = new SqlConnectionFactory(ConnectionString);
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: false)
+            .Build();
+
+        var connectionString =
+            configuration.GetConnectionString("SalesManagement")
+            ?? throw new InvalidOperationException(
+                "Connection string 'SalesManagement' was not found.");
+
+        ConnectionFactory = new SqlConnectionFactory(connectionString);
         DistrictRepository = new DistrictRepository(ConnectionFactory);
     }
 
     public async Task VerifyDatabaseIsAvailableAsync()
     {
-        await using var connection =
-            new SqlConnection(ConnectionString);
+        await using var connection = ConnectionFactory.CreateConnection();
 
         await connection.OpenAsync();
     }
