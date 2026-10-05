@@ -4,7 +4,7 @@ using SalesManagement.Data.Repositories;
 
 namespace SalesManagement.IntegrationTests;
 
-public sealed class DatabaseFixture
+public class DatabaseFixture
 {
     public SqlConnectionFactory ConnectionFactory { get; }
 

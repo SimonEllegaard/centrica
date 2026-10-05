@@ -3,7 +3,7 @@ using Xunit;
 
 namespace SalesManagement.IntegrationTests;
 
-public sealed class DistrictRepositoryTests(DatabaseFixture fixture) : IClassFixture<DatabaseFixture>
+public class DistrictRepositoryTests(DatabaseFixture fixture) : IClassFixture<DatabaseFixture>
 {
     [Fact]
     public async Task GetAllAsync_ReturnsSeededDistricts()

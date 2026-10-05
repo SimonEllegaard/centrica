@@ -5,7 +5,7 @@ namespace SalesManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/districts")]
-public sealed class DistrictsController(IDistrictService districtService) : ControllerBase
+public class DistrictsController(IDistrictService districtService) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult> GetDistricts(

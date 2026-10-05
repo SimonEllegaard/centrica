@@ -6,7 +6,7 @@ using SalesManagement.Data.Database;
 
 namespace SalesManagement.Data.Repositories;
 
-public sealed class DistrictRepository(SqlConnectionFactory connectionFactory) : IDistrictRepository
+public class DistrictRepository(SqlConnectionFactory connectionFactory) : IDistrictRepository
 {
     public async Task<IReadOnlyList<District>> GetAllAsync(
         CancellationToken cancellationToken = default)
