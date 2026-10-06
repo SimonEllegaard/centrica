@@ -1,6 +1,7 @@
 using SalesManagement.Application.Dtos;
 using SalesManagement.Application.DomainModels;
 using SalesManagement.Application.DomainModels.Enums;
+using DistrictSalesperson = SalesManagement.Application.DomainModels.DistrictSalesperson;
 
 namespace SalesManagement.Application.Interfaces;
 

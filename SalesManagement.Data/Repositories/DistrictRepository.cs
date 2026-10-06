@@ -5,6 +5,8 @@ using SalesManagement.Application.Interfaces;
 using SalesManagement.Application.DomainModels;
 using SalesManagement.Application.DomainModels.Enums;
 using SalesManagement.Data.Database;
+using DistrictSalesperson = SalesManagement.Application.Dtos.DistrictSalesperson;
+using Store = SalesManagement.Application.Dtos.Store;
 
 namespace SalesManagement.Data.Repositories;
 
@@ -85,13 +87,13 @@ public class DistrictRepository(SqlConnectionFactory connectionFactory) : IDistr
             return null;
         }
 
-        var salespersons = await connection.QueryAsync<DistrictSalespersonDto>(
+        var salespersons = await connection.QueryAsync<DistrictSalesperson>(
             new CommandDefinition(
                 salespersonSql,
                 parameters,
                 cancellationToken: cancellationToken));
 
-        var stores = await connection.QueryAsync<StoreDto>(
+        var stores = await connection.QueryAsync<Store>(
             new CommandDefinition(
                 storeSql,
                 parameters,
@@ -146,7 +148,7 @@ public class DistrictRepository(SqlConnectionFactory connectionFactory) : IDistr
         return await connection.QuerySingleOrDefaultAsync<int?>(command) is not null;
     }
 
-    public async Task<DistrictSalesperson?> GetSalespersonAssignmentAsync(
+    public async Task<Application.DomainModels.DistrictSalesperson?> GetSalespersonAssignmentAsync(
         int districtId,
         int salespersonId,
         CancellationToken cancellationToken = default)
@@ -172,7 +174,7 @@ public class DistrictRepository(SqlConnectionFactory connectionFactory) : IDistr
             },
             cancellationToken: cancellationToken);
 
-        return await connection.QuerySingleOrDefaultAsync<DistrictSalesperson>(
+        return await connection.QuerySingleOrDefaultAsync<Application.DomainModels.DistrictSalesperson>(
             command);
     }
 
