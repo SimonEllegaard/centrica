@@ -1,58 +1,83 @@
-<div class="container">
-  <h1>Sales Management</h1>
-
-  <p *ngIf="errorMessage" class="error">
-    {{ errorMessage }}
-  </p>
+<div class="page">
+  <header class="page-header">
+    <div>
+      <h1>Sales Management</h1>
+      <p>Manage districts, salespeople, and stores.</p>
+    </div>
+  </header>
 
   <div class="layout">
-    <aside>
-      <h2>Districts</h2>
-
+    <aside class="district-panel">
+      <div class="panel-header">
+        <h2>Districts</h2>
+      </div>
       <ul class="district-list">
         <li *ngFor="let district of districts">
           <button
             type="button"
-            (click)="selectDistrict(district)"
-            [class.selected]="selectedDistrict?.id === district.id">
+            class="district-button"
+            [class.selected]="selectedDistrict?.id === district.id"
+            (click)="selectDistrict(district)">
             {{ district.name }}
           </button>
         </li>
       </ul>
     </aside>
 
-    <main *ngIf="selectedDistrict">
-      <h2>{{ selectedDistrict.name }}</h2>
+    <main class="content">
+      <p *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </p>
 
-      <section>
-        <h3>Salespeople</h3>
+      <ng-container *ngIf="selectedDistrict">
+        <div class="content-header">
+          <div>
+            <h2>{{ selectedDistrict.name }}</h2>
+            <p>District details</p>
+          </div>
+        </div>
 
-        <table>
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Role</th>
-          </tr>
-          </thead>
+        <section class="card">
+          <div class="card-header">
+            <h3>Salespeople</h3>
+          </div>
 
-          <tbody>
-          <tr *ngFor="let salesperson of selectedDistrict.salespersons">
-            <td>{{ salesperson.name }}</td>
-            <td>{{ salesperson.role }}</td>
-          </tr>
-          </tbody>
-        </table>
-      </section>
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+            </tr>
+            </thead>
 
-      <section>
-        <h3>Stores</h3>
+            <tbody>
+            <tr *ngFor="let salesperson of selectedDistrict.salespersons">
+              <td>{{ salesperson.name }}</td>
+              <td>
+              <span
+                class="role"
+                [class.primary]="salesperson.role === 'Primary'"
+                [class.secondary]="salesperson.role === 'Secondary'">
+                {{ salesperson.role }}
+              </span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
 
-        <ul>
-          <li *ngFor="let store of selectedDistrict.stores">
-            {{ store.name }}
-          </li>
-        </ul>
-      </section>
+        <section class="card">
+          <div class="card-header">
+            <h3>Stores</h3>
+          </div>
+
+          <ul class="store-list">
+            <li *ngFor="let store of selectedDistrict.stores">
+              {{ store.name }}
+            </li>
+          </ul>
+        </section>
+      </ng-container>
     </main>
   </div>
 </div>
