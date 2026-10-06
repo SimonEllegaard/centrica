@@ -16,6 +16,7 @@
           <button
             type="button"
             class="district-button"
+            [disabled]="isLoadingDetails"
             [class.selected]="selectedDistrict?.id === district.id"
             (click)="selectDistrict(district)">
             {{ district.name }}
@@ -65,8 +66,17 @@
               <td>
                 <div class="actions">
                   <button
+                    *ngIf="salesperson.role === 'Secondary'"
                     type="button"
-                    (click)="removeSalesperson(salesperson.id)">
+                    (click)="makePrimary(salesperson.id)">
+                    Make primary
+                  </button>
+
+                  <button
+                    *ngIf="salesperson.role === 'Secondary'"
+                    type="button"
+                    (click)="removeSalesperson(salesperson.id)"
+                    class="danger">
                     Remove
                   </button>
                 </div>

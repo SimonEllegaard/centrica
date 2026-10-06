@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
 
   errorMessage = '';
 
+  isLoadingDistricts = false;
+  isLoadingDetails = false;
+  isMutating = false;
+
   constructor(
     private readonly districtService: DistrictService,
     private readonly salespersonService: SalespersonService
@@ -100,7 +104,33 @@ export class AppComponent implements OnInit {
       });
   }
 
+  makePrimary(salespersonId: number): void {
+    if (!this.selectedDistrict) {
+      return;
+    }
+
+    this.errorMessage = '';
+
+    this.districtService
+      .assignSalesperson(
+        this.selectedDistrict.id,
+        salespersonId,
+        { role: 'Primary' }
+      )
+      .subscribe({
+        next: () => {
+          this.loadDistrictDetails(this.selectedDistrict!.id);
+        },
+        error: () => {
+          this.errorMessage = 'Unable to change the primary salesperson.';
+        }
+      });
+  }
+
   private loadDistricts(): void {
+    this.isLoadingDistricts = true;
+    this.errorMessage = '';
+
     this.districtService
       .getDistricts()
       .subscribe({
@@ -113,6 +143,9 @@ export class AppComponent implements OnInit {
         },
         error: () => {
           this.errorMessage = 'Unable to load districts.';
+        },
+        complete: () => {
+          this.isLoadingDistricts = false;
         }
       });
   }
@@ -131,6 +164,9 @@ export class AppComponent implements OnInit {
   }
 
   private loadDistrictDetails(districtId: number): void {
+    this.isLoadingDetails = true;
+    this.errorMessage = '';
+
     this.districtService
       .getDistrictDetails(districtId)
       .subscribe({
@@ -139,6 +175,9 @@ export class AppComponent implements OnInit {
         },
         error: () => {
           this.errorMessage = 'Unable to load district details.';
+        },
+        complete: () => {
+          this.isLoadingDetails = false;
         }
       });
   }

@@ -166,7 +166,7 @@ td {
 }
 
 .role.primary {
-  background: #e8eef7;
+  background: #d1e0f6;
   color: #315a8a;
 }
 
@@ -264,6 +264,7 @@ section {
 .actions {
   display: flex;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .assignment-section {
@@ -289,4 +290,13 @@ section {
   padding: 0.6rem;
   background: #e9e9ed;
   border-color: #676774;
+}
+
+button.danger {
+  border-color: #c66;
+  background: #fff5f5;
+}
+
+button.danger:hover:not(:disabled) {
+  background: #ffe8e8;
 }
