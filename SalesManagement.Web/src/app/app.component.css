@@ -1,0 +1,51 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+}
+
+.district-list {
+  list-style: none;
+  padding: 0;
+}
+
+.district-list button {
+  width: 100%;
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.district-list button.selected {
+  font-weight: bold;
+  background: #eee;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.error {
+  padding: 1rem;
+  border: 1px solid #c00;
+}
