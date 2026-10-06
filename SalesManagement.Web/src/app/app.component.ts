@@ -84,6 +84,10 @@ export class AppComponent implements OnInit {
       return;
     }
 
+    if (!window.confirm('Remove this salesperson from the district?')) {
+      return;
+    }
+
     this.errorMessage = '';
 
     this.districtService
