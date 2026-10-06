@@ -3,6 +3,7 @@ using SalesManagement.Application.DomainModels.Enums;
 using SalesManagement.Application.DomainModels;
 using SalesManagement.Application.Interfaces;
 using DistrictSalesperson = SalesManagement.Application.DomainModels.DistrictSalesperson;
+using Salesperson = SalesManagement.Application.DomainModels.Salesperson;
 
 namespace SalesManagement.UnitTests;
 

@@ -25,6 +25,9 @@ builder.Services.AddSingleton(
 builder.Services.AddScoped<IDistrictRepository, DistrictRepository>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
 
+builder.Services.AddScoped<ISalespersonRepository, SalespersonRepository>();
+builder.Services.AddScoped<ISalespersonService, SalespersonService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
