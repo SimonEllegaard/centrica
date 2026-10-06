@@ -47,6 +47,7 @@
             <tr>
               <th>Name</th>
               <th>Role</th>
+              <th>Actions</th>
             </tr>
             </thead>
 
@@ -61,9 +62,46 @@
                 {{ salesperson.role }}
               </span>
               </td>
+              <td>
+                <div class="actions">
+                  <button
+                    type="button"
+                    (click)="removeSalesperson(salesperson.id)">
+                    Remove
+                  </button>
+                </div>
+              </td>
             </tr>
             </tbody>
           </table>
+
+          <section class="assignment-section">
+            <h3>Assign salesperson</h3>
+
+            <div class="assignment-form">
+              <select [(ngModel)]="selectedSalespersonId">
+                <option [ngValue]="null">Select salesperson...</option>
+
+                <option
+                  *ngFor="let salesperson of availableSalespeople"
+                  [ngValue]="salesperson.id">
+                  {{ salesperson.name }}
+                </option>
+              </select>
+
+              <select [(ngModel)]="selectedRole">
+                <option value="Primary">Primary</option>
+                <option value="Secondary">Secondary</option>
+              </select>
+
+              <button
+                type="button"
+                [disabled]="selectedSalespersonId === null"
+                (click)="assignSalesperson()">
+                Assign
+              </button>
+            </div>
+          </section>
         </section>
 
         <section class="card">

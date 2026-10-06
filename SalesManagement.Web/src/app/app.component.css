@@ -217,3 +217,76 @@ td {
     padding: 1.25rem 1rem;
   }
 }
+
+.assignment-form {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.2rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #e5e5e5;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.district-list button {
+  width: 100%;
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+.district-list button.selected {
+  font-weight: bold;
+  background: #eee;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.assignment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.assignment-section h3 {
+  margin-top: 0;
+}
+
+.assignment-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.assignment-form select {
+  padding: 0.5rem;
+}
+
+.assignment-form button {
+  padding: 0.6rem;
+  background: #e9e9ed;
+  border-color: #676774;
+}
