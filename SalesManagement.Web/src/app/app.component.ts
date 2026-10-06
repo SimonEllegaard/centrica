@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
 
   isLoadingDistricts = false;
   isLoadingDetails = false;
-  isMutating = false;
 
   constructor(
     private readonly districtService: DistrictService,
