@@ -3,9 +3,13 @@
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=58e1f2c1_002D3e72_002D4a2c_002Dad3a_002Df17bbb2509ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DistrictRepositoryTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::2EA8DAB1-B934-430E-85DF-136E342E9F53::net8.0::SalesManagement.IntegrationTests.DistrictRepositoryTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::2EA8DAB1-B934-430E-85DF-136E342E9F53::net8.0::SalesManagement.IntegrationTests.DistrictRepositoryTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::634DC3A4-9719-4C6C-ACB6-C137F8DB05C1::net8.0::SalesManagement.UnitTests.DistrictServiceTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="C:\Users\Simon\RiderProjects\SalesManagement\SalesManagement.EndToEndTests" Presentation="&amp;lt;SalesManagement.EndToEndTests&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	

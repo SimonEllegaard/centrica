@@ -14,7 +14,7 @@ public class DatabaseFixture
     {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(AppContext.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: false)
+            .AddJsonFile("appsettings.Testing.json", optional: false)
             .Build();
 
         var connectionString =

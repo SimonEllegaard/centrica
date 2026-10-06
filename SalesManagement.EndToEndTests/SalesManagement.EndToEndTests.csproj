@@ -7,6 +7,9 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,11 +31,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="appsettings.json">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </Content>
+        <Content Include="appsettings.Testing.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SalesManagement.Api\SalesManagement.Api.csproj" />
     </ItemGroup>
 
 </Project>
