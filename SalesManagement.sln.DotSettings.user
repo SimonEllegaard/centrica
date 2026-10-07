@@ -7,6 +7,7 @@
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;xUnit::2EA8DAB1-B934-430E-85DF-136E342E9F53::net8.0::SalesManagement.IntegrationTests.DistrictRepositoryTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::634DC3A4-9719-4C6C-ACB6-C137F8DB05C1::net8.0::SalesManagement.UnitTests.DistrictServiceTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::E874432F-B937-4122-8831-EC2FB1FB0F9F::net8.0::SalesManagement.EndToEndTests.DistrictsApiTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Project Location="C:\Users\Simon\RiderProjects\SalesManagement\SalesManagement.EndToEndTests" Presentation="&amp;lt;SalesManagement.EndToEndTests&amp;gt;" /&gt;&#xD;
   &lt;/Or&gt;&#xD;

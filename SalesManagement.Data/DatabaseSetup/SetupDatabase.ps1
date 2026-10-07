@@ -5,7 +5,7 @@ param(
     [switch]$DropExisting
 )
 
-$ServerName = "DESKTOP-OL6L16D"
+$ServerName = "LAPTOP-26HEUVDP"
 
 $ScriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
 
